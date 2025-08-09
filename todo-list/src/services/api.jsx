@@ -1,8 +1,12 @@
 import axios from "axios";
 
+const USE_LOCAL_API = false;
+
 const apiTodo = axios.create({
-  baseURL: "http://127.0.0.1:3005/todo-api/to-do",
-  timeout: 9000,
+  baseURL: USE_LOCAL_API
+    ? "http://127.0.0.1:3005/todo-api/to-do"
+    : "https://lc-todo-list.vercel.app/todo-api/to-do",
+  timeout: 15000,
 });
 
 export const getTasks = async () => {
