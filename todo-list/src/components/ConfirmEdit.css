@@ -1,0 +1,83 @@
+.confirm-edit-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(44, 44, 44, 0.25);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.confirm-edit-modal {
+  background: #fff;
+  padding: 2rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(76,76,76,0.15);
+  min-width: 260px;
+  max-width: 90vw;
+  text-align: center;
+}
+
+.app-container.dark .confirm-edit-modal {
+  background: #23233a;
+  color: #e4eaf3;
+}
+
+.app-container.dark .confirm-edit-title {
+  color: #e4eaf3;
+}
+
+.app-container.dark .cancel-btn {
+  background: #23233a;
+  color: #e4eaf3;
+}
+
+.app-container.dark .confirm-btn {
+  background: #4f8cff;
+  color: #fff;
+}
+
+.confirm-edit-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  color: #23233a;
+}
+
+.confirm-edit-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.confirm-btn {
+  background: #4f8cff;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.confirm-btn:hover {
+  background: #3560a7;
+}
+
+.cancel-btn {
+  background: #f3f3f3;
+  color: #23233a;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cancel-btn:hover {
+  background: #e0e0e0;
+}
