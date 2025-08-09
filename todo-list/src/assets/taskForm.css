@@ -1,0 +1,114 @@
+form {
+  background: var(--color-white, #fff);
+  border: 1px solid var(--color-secondary, #b5b5b5);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin: 1rem auto;
+  max-width: 400px;
+  box-shadow: 0 2px 8px rgba(158,159,255,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+label {
+  font-size: 1rem;
+  color: var(--color-primary, #4a4a4a);
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+input[type="text"], select {
+  border: 1px solid var(--color-secondary, #b5b5b5);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background: var(--color-bg, #f0f0f0);
+  color: var(--color-primary, #4a4a4a);
+  transition: border 0.2s;
+}
+
+input[type="text"]:focus, select:focus {
+  border-color: var(--color-accent, #9e9fff);
+  outline: none;
+}
+
+button[type="submit"] {
+  background: var(--color-accent, #9e9fff);
+  color: var(--color-white, #fff);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.7rem 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 0.5rem;
+}
+
+button[type="submit"]:hover {
+  background: #7c7cff;
+}
+
+form div {
+  color: #d32f2f;
+  font-size: 0.95rem;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 500px) {
+  form {
+    padding: 1rem;
+    max-width: 98vw;
+  }
+  button[type="submit"] {
+    width: 100%;
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(76, 76, 76, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-form {
+  position: relative;
+  z-index: 2;
+}
+
+.form-close,
+.modal-close {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--color-secondary, #b5b5b5);
+  cursor: pointer;
+  z-index: 3;
+  transition: color 0.2s;
+}
+
+.form-close:hover,
+.modal-close:hover {
+  color: var(--color-accent, #9e9fff);
+}
