@@ -29,7 +29,12 @@ function App() {
   const [theme, setTheme] = useState("light");
   const [alert, setAlert] = useState({ show: false });
   const [confirmDelete, setConfirmDelete] = useState({ show: false, id: null });
-  const [confirmEdit, setConfirmEdit] = useState({ show: false, id: null, title: "", importance: "" });
+  const [confirmEdit, setConfirmEdit] = useState({
+    show: false,
+    id: null,
+    title: "",
+    importance: "",
+  });
 
   const { tasks, loading, error, refetch } = useGetTask();
   const { add, loading: addLoading } = useAddTask();
@@ -53,7 +58,10 @@ function App() {
     setShowForm(false);
     setEditId(null);
     setFormInitial({ title: "", importance: "low" });
-    setLocalTasks((prev) => [...prev, { ...newTask, _id: Math.random().toString() }]);
+    setLocalTasks((prev) => [
+      ...prev,
+      { ...newTask, _id: Math.random().toString() },
+    ]);
     refetch();
     setAlert({ show: true }); // Mostrar alerta al agregar
   };
@@ -64,9 +72,7 @@ function App() {
     setEditId(null);
     setFormInitial({ title: "", importance: "low" });
     setLocalTasks((prev) =>
-      prev.map((t) =>
-        t._id === editId ? { ...t, title, importance } : t
-      )
+      prev.map((t) => (t._id === editId ? { ...t, title, importance } : t))
     );
     refetch();
     setAlert({ show: true }); // Mostrar alerta al editar
@@ -78,7 +84,10 @@ function App() {
 
   const handleEditConfirm = () => {
     setEditId(confirmEdit.id);
-    setFormInitial({ title: confirmEdit.title, importance: confirmEdit.importance });
+    setFormInitial({
+      title: confirmEdit.title,
+      importance: confirmEdit.importance,
+    });
     setShowForm(true);
     setConfirmEdit({ show: false, id: null, title: "", importance: "" });
   };
@@ -92,11 +101,11 @@ function App() {
   };
 
   const handleDeleteConfirm = async () => {
+    setConfirmDelete({ show: false, id: null });
     await remove(confirmDelete.id);
     setLocalTasks((prev) => prev.filter((t) => t._id !== confirmDelete.id));
     refetch();
     setAlert({ show: true });
-    setConfirmDelete({ show: false, id: null });
   };
 
   const handleDeleteCancel = () => {
@@ -107,9 +116,7 @@ function App() {
     const newStatus = task.status === "completed" ? "pending" : "completed";
     await edit(task._id, { ...task, status: newStatus });
     setLocalTasks((prev) =>
-      prev.map((t) =>
-        t._id === task._id ? { ...t, status: newStatus } : t
-      )
+      prev.map((t) => (t._id === task._id ? { ...t, status: newStatus } : t))
     );
     refetch();
   };
