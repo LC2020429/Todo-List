@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import TaskForm from "./components/taskForm";
-import ActionAlert from "./components/ActionAlert";
 import ConfirmDelete from "./components/ConfirmDelete";
 import ConfirmEdit from "./components/ConfirmEdit"; // Nuevo componente
 import { useGetTask } from "./shared/useGetTask";
@@ -252,7 +251,6 @@ function App() {
           </div>
         </div>
       )}
-      <ActionAlert show={alert.show} />
       <ConfirmDelete
         show={confirmDelete.show}
         onConfirm={handleDeleteConfirm}
